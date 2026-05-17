@@ -68,27 +68,52 @@ section{padding:clamp(72px,9vw,110px) 0;position:relative;z-index:1}
 [data-r].in{opacity:1;transform:none}
 [data-d="1"]{transition-delay:.08s}[data-d="2"]{transition-delay:.16s}[data-d="3"]{transition-delay:.24s}
 
-/* HERO */
-#hero{min-height:100vh;padding-top:50px;display:grid;grid-template-columns:1fr 400px;position:relative;overflow:hidden}
-@media(max-width:900px){#hero{grid-template-columns:1fr;padding-bottom:80px}}
-.hl{display:flex;flex-direction:column;justify-content:center;padding:clamp(50px,7vw,90px) clamp(20px,4vw,56px);position:relative;z-index:2;max-width:680px;text-align:right}
-.h-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:var(--acc);border:1px solid rgba(17,202,160,.3);padding:5px 14px;background:var(--acc-d);margin-bottom:32px;width:fit-content;margin-right:0}
-.h-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--acc);animation:blink 1.8s ease infinite;flex-shrink:0}
-.h-name{font-family:var(--serif);font-size:clamp(64px,11vw,110px);font-weight:400;color:var(--t0);line-height:.88;letter-spacing:-.03em;margin-bottom:15px}
-.h-sub{font-family:var(--mono);font-size:clamp(13px,1.6vw,18px);font-weight:300;color:var(--acc);letter-spacing:.1em;display:block;margin-top:10px}
-.h-hook{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2vw,22px);color:var(--t1);line-height:1.6;max-width:600px;padding-right:18px;border-right:2px solid rgba(17,202,160,.35);margin-bottom:36px}
+/* ── MISSION STRIP ── */
+.mission-strip{background:linear-gradient(135deg,rgba(17,202,160,.08) 0%,rgba(212,160,0,.06) 100%);border-top:1px solid rgba(17,202,160,.2);border-bottom:1px solid rgba(17,202,160,.2);padding:12px clamp(20px,4vw,56px);display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--t2);text-transform:uppercase;position:relative;z-index:2}
+.mission-strip::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--acc);animation:blink 2s ease infinite;flex-shrink:0}
+.mission-strip strong{color:var(--acc);font-weight:600}
 
-/* CORE COMPETENCIES */
-.h-competencies{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--border);margin-bottom:32px;overflow:hidden;text-align:right}
-@media(max-width:480px){.h-competencies{grid-template-columns:1fr}}
-.hc-item{padding:14px 16px;border-left:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
-.hc-item:nth-child(2n){border-left:none}
-.hc-item:nth-last-child(-n+2){border-bottom:none}
-@media(max-width:480px){.hc-item{border-left:none}.hc-item:last-child{border-bottom:none}}
-.hc-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--hcc,var(--acc));opacity:.8}
-.hc-label{font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--t3);text-transform:uppercase;margin-bottom:5px}
-.hc-value{font-size:12px;font-weight:500;color:var(--t1);line-height:1.3}
-.hc-tag{display:inline-block;font-family:var(--mono);font-size:7px;letter-spacing:.1em;padding:2px 7px;background:var(--acc-d);color:var(--hcc,var(--acc));border:1px solid rgba(17,202,160,.2);margin-top:4px}
+/* ── HERO OVERRIDES FOR NEW LAYOUT ── */
+#hero{min-height:100vh;padding-top:50px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.hero-main{display:grid;grid-template-columns:1fr 420px;flex:1}
+@media(max-width:900px){.hero-main{grid-template-columns:1fr;padding-bottom:80px}}
+.hl{display:flex;flex-direction:column;justify-content:center;padding:clamp(50px,7vw,90px) clamp(20px,4vw,56px);position:relative;z-index:2;max-width:680px;text-align:right}
+
+/* PURPOSE PILL */
+.purpose-pill{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid rgba(17,202,160,.3);padding:8px 18px;font-family:var(--mono);font-size:8px;letter-spacing:.18em;color:var(--acc);text-transform:uppercase;margin-bottom:28px;position:relative;overflow:hidden;width:fit-content;margin-right:0}
+.purpose-pill::before{content:'';position:absolute;right:0;top:0;bottom:0;width:3px;background:var(--acc)}
+.purpose-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--acc);animation:blink 1.8s ease infinite;flex-shrink:0}
+
+/* HERO HEADLINE */
+.h-name{font-family:var(--serif);font-size:clamp(58px,10vw,100px);font-weight:400;color:var(--t0);line-height:.88;letter-spacing:-.03em;margin-bottom:10px}
+.h-name .h-sub{font-family:var(--mono);font-size:clamp(11px,1.4vw,16px);font-weight:300;color:var(--acc);letter-spacing:.12em;display:block;margin-top:14px;line-height:1.4}
+
+/* MISSION STATEMENT */
+.mission-block{margin:28px 0 32px;border-right:3px solid var(--acc);padding-right:22px;max-width:640px}
+.mission-label{font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:var(--acc);text-transform:uppercase;margin-bottom:10px;opacity:.7}
+.mission-statement{font-family:var(--serif);font-style:italic;font-size:clamp(18px,2.2vw,25px);color:var(--t0);line-height:1.55}
+.mission-statement em{font-style:normal;color:var(--acc);font-family:var(--sans);font-weight:600;font-size:.85em}
+.mission-sub{font-size:13px;color:var(--t2);line-height:1.8;margin-top:12px;font-style:normal;font-family:var(--sans)}
+
+/* FOUNDERS MINI STRIP */
+.founders-strip{display:flex;align-items:center;gap:20px;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:28px;flex-wrap:wrap}
+.founder-item{display:flex;align-items:center;gap:10px}
+.founder-avatar{width:36px;height:36px;border-radius:50%;border:1px solid var(--border-hi);background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:14px;color:var(--t0);font-weight:400;flex-shrink:0}
+.founder-info{text-align:right}
+.founder-name{font-size:12px;font-weight:600;color:var(--t0);line-height:1.2}
+.founder-role{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--acc2);text-transform:uppercase}
+.founder-sep{width:1px;height:36px;background:var(--border);flex-shrink:0}
+@media(max-width:580px){.founder-sep{display:none}}
+
+/* KPI STRIP */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);margin-bottom:28px;width:100%}
+@media(max-width:600px){.kpi-row{grid-template-columns:repeat(2,1fr)}}
+.kpi-cell{padding:16px;border-left:1px solid var(--border);text-align:center}
+.kpi-cell:last-child{border-left:none}
+@media(max-width:600px){.kpi-cell:nth-child(2){border-left:none}.kpi-cell:nth-child(3){border-top:1px solid var(--border)}.kpi-cell:nth-child(4){border-top:1px solid var(--border)}}
+.kpi-val{font-family:var(--serif);font-size:clamp(22px,3vw,32px);color:var(--t0);line-height:1;margin-bottom:4px}
+.kpi-val span{font-family:var(--mono);font-size:11px;color:var(--acc)}
+.kpi-lbl{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--t3);text-transform:uppercase}
 
 .h-cta{display:flex;gap:10px;flex-wrap:wrap}
 .btn{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:11px 22px;display:inline-flex;align-items:center;gap:8px;border:1px solid;transition:all .25s var(--ease);cursor:pointer}
@@ -137,7 +162,7 @@ section{padding:clamp(72px,9vw,110px) 0;position:relative;z-index:1}
 
 /* MATRIX TABLE */
 .matrix-box{overflow-x:auto;border:1px solid var(--border);background:var(--bg2);margin-top:32px}
-table{w:100%;width:100%;border-collapse:collapse;text-align:right;font-size:13px}
+table{width:100%;border-collapse:collapse;text-align:right;font-size:13px}
 th{background:var(--bg3);color:var(--t0);font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:14px;border-bottom:1px solid var(--border)}
 td{padding:14px;border-bottom:1px solid var(--border);color:var(--t1)}
 tr:last-child td{border-bottom:none}
@@ -158,7 +183,7 @@ tr:last-child td{border-bottom:none}
 .fld input,.fld textarea{font-family:var(--sans);font-size:13px;color:var(--t1);background:transparent;border:none;padding:5px 0 11px;width:100%;outline:none;caret-color:var(--acc);text-align:right}
 .fld textarea{min-height:80px}
 
-footer{border-top:1px solid var(--border);padding:20px 50px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:8px;color:var(--t3)}
+footer{border-top:1px solid var(--border);padding:20px 50px;display:flex;justify-content: space-between;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:8px;color:var(--t3)}
 </style>
 </head>
 <body>
@@ -196,55 +221,90 @@ footer{border-top:1px solid var(--border);padding:20px 50px;display:flex;justify
 </nav>
 
 <section id="hero">
-  <div class="hl">
-    <div class="h-badge" data-r="u">Sustainable AgTech Paradigm | الدقهلية</div>
-    <h1 class="h-name" data-r="u" data-d="1">عافية - تك<span class="h-sub">نظام مراقبة صحة القطيع الذكي</span></h1>
-    <p class="h-hook" data-r="u" data-d="2">
-      نحو هندسة زراعية متكاملة لحماية المزارع المصري من الخسائر الصامتة. نتحول جذرياً من رصد المؤشرات التقليدية العشوائية إلى الكشف الطبي الاستباقي المبكر للماشية.
-    </p>
-
-    <div class="h-competencies" data-r="u" data-d="3">
-      <div class="hc-item" style="--hcc:var(--acc)">
-        <div class="hc-label">Strategy Paradigm</div>
-        <div class="hc-value">Software-First Paradigm</div>
-        <span class="hc-tag">خوارزميات محلية ومعايرة دقيقة</span>
-      </div>
-      <div class="hc-item" style="--hcc:var(--acc2)">
-        <div class="hc-label">Financial Value</div>
-        <div class="hc-value">270% ROI // 5 Months Payback</div>
-        <span class="hc-tag" style="--hcc:var(--acc2);border-color:rgba(212,160,0,.25)">جدوى تشغيلية فائقة</span>
-      </div>
-      <div class="hc-item" style="--hcc:var(--acc3)">
-        <div class="hc-label">Green Architecture</div>
-        <div class="hc-value">Climate Strategy 2050 Alignment</div>
-        <span class="hc-tag" style="--hcc:var(--acc3);border-color:rgba(0,196,122,.25)">خفض الانبعاثات والمضادات</span>
-      </div>
-      <div class="hc-item" style="--hcc:var(--acc4)">
-        <div class="hc-label">Social Impact</div>
-        <div class="hc-value">Empowering Rural Women 65%</div>
-        <span class="hc-tag" style="--hcc:var(--acc4);border-color:rgba(212,64,64,.25)">دعم اتخاذ القرار الرقمي</span>
-      </div>
-    </div>
-
-    <div class="h-cta" data-r="u" data-d="3">
-      <a href="#architecture" class="btn btn-p">اكتشف البنية الهندسية ↓</a>
-      <a href="#contact" class="btn btn-g">طلب نسخة تجريبية ↗</a>
-    </div>
+  <div class="mission-strip" data-r="u">
+    <span>المهمة الجوهرية:</span>
+    <strong>بُني هذا النظام لتحويل كل مزرعة مصرية من الطب البيطري التفاعلي إلى الكشف الاستباقي المبكر — بأيدي مصرية ولغة مصرية</strong>
   </div>
 
-  <div class="hr">
-    <div class="hr-terminal">
-      <p style="color:var(--acc)">// Individual-Calibrated Health Equation</p>
-      <p style="color:#fff;font-weight:bold;margin:10px 0;">Hi(t) = 100 × [ 1 − wT·ΔTi(t) − wM·ΔMi(t) ]</p>
-      <p>Where: wT = 0.45 (Temp Weight), wM = 0.35 (Activity Baseline)</p>
-      <p style="margin-top:15px;color:var(--t3)">// Gateway Network Topology</p>
-      <p>Protocol: LoRaWAN 868MHz Sub-GHz Loop</p>
-      <p>Topology Node Range: 2 - 5 KM Core Mesh</p>
+  <div class="hero-main">
+    <div class="hl">
+      <div class="purpose-pill" data-r="u">
+        <span class="purpose-pill-dot"></span>
+        Smart Herd Health Monitoring · الدقهلية، مصر · 2026
+      </div>
+
+      <h1 class="h-name" data-r="u" data-d="1">عافية<br>تك<span class="h-sub">// نظام المراقبة الذكية لصحة القطيع</span></h1>
+
+      <div class="mission-block" data-r="u" data-d="2">
+        <div class="mission-label">رسالة المشروع</div>
+        <p class="mission-statement">
+          أُنشئت عافية-تك لأن المزارع المصري يستحق ما هو أكثر من مجرد إنذار — 
+          يستحق <em>تشخيصاً</em> يصله بلغته، على هاتفه، قبل أن تظهر الأعراض.
+        </p>
+        <p class="mission-sub">
+          بقرة مريضة تبدو طبيعية لأيام كاملة للعين المجردة — بينما تخسر المزرعة 15–25% من إيراداتها صمتاً. 
+          جمعنا خبرة طب بيطري جامعة المنصورة مع هندسة الأنظمة المدمجة لنبني أول نظام تشخيص استباقي 
+          معيَّر على الأبقار المصرية — البلدي والفريزيان المهجن — لا على بيانات أوروبية لا تعكس واقعنا.
+        </p>
+      </div>
+
+      <div class="founders-strip" data-r="u" data-d="2">
+        <div class="founder-item">
+          <div class="founder-avatar">أ·ع</div>
+          <div class="founder-info">
+            <div class="founder-name">د. أحمد عماد إسماعيل</div>
+            <div class="founder-role">Chief Veterinary Officer · جامعة المنصورة</div>
+          </div>
+        </div>
+        <div class="founder-sep"></div>
+        <div class="founder-item">
+          <div class="founder-avatar" style="color:var(--acc)">إ·ع</div>
+          <div class="founder-info">
+            <div class="founder-name">م. إسلام عماد إسماعيل</div>
+            <div class="founder-role" style="color:var(--acc)">Chief Technology Officer · هندسة الإلكترونيات</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kpi-row" data-r="u" data-d="3">
+        <div class="kpi-cell">
+          <div class="kpi-val">270<span>%</span></div>
+          <div class="kpi-lbl">عائد الاستثمار ROI</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="kpi-val">5<span>mo</span></div>
+          <div class="kpi-lbl">استرداد رأس المال</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="kpi-val">407<span>k ج</span></div>
+          <div class="kpi-lbl">توفير / 100 بقرة / سنة</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="kpi-val">20<span>×</span></div>
+          <div class="kpi-lbl">أرخص من المنافسين</div>
+        </div>
+      </div>
+
+      <div class="h-cta" data-r="u" data-d="3">
+        <a href="#problem" class="btn btn-p">كيف يعمل النظام ↓</a>
+        <a href="#contact" class="btn btn-g">انضم للمرحلة التجريبية المجانية ↗</a>
+      </div>
     </div>
-    <div class="hr-alert">
-      <p style="color:var(--acc4);font-weight:bold;font-family:var(--mono);font-size:10px;">⚠️ CRITICAL ALERT // LIVE LOG</p>
-      <p style="color:#fff;font-size:12px;margin-top:5px;font-weight:500;">اشتباه التهاب ضرع عاجل — بقرة رقم 47</p>
-      <p style="color:var(--t2);font-size:11px;">درجة الحرارة: 40.5°C | مؤشر الصحة الحيوية: 42/100</p>
+
+    <div class="hr">
+      <div class="hr-terminal">
+        <p style="color:var(--acc)">// Individual-Calibrated Health Equation</p>
+        <p style="color:#fff;font-weight:bold;margin:10px 0;">Hi(t) = 100 × [ 1 − wT·ΔTi(t) − wM·ΔMi(t) ]</p>
+        <p>Where: wT = 0.45 (Temp Weight), wM = 0.35 (Activity Baseline)</p>
+        <p style="margin-top:15px;color:var(--t3)">// Gateway Network Topology</p>
+        <p>Protocol: LoRaWAN 868MHz Sub-GHz Loop</p>
+        <p>Topology Node Range: 2 - 5 KM Core Mesh</p>
+      </div>
+      <div class="hr-alert">
+        <p style="color:var(--acc4);font-weight:bold;font-family:var(--mono);font-size:10px;">⚠️ CRITICAL ALERT // LIVE LOG</p>
+        <p style="color:#fff;font-size:12px;margin-top:5px;font-weight:500;">اشتباه التهاب ضرع عاجل — بقرة رقم 47</p>
+        <p style="color:var(--t2);font-size:11px;">درجة الحرارة: 40.5°C | مؤشر الصحة الحيوية: 42/100</p>
+      </div>
     </div>
   </div>
 </section>
@@ -367,17 +427,27 @@ footer{border-top:1px solid var(--border);padding:20px 50px;display:flex;justify
   
   <div class="ag" data-r="u" data-d="2">
     <div class="team-card">
-      <div class="team-role" style="background:var(--acc2);color:#000;">MEDICAL DIRECTOR</div>
-      <h3 style="font-size:18px;color:var(--t0);margin-bottom:5px;">الدكتور / أحمد عماد إسماعيل</h3>
-      <p style="font-family:var(--mono);font-size:9px;color:var(--acc2);margin-bottom:12px;">Veterinarian & Preventive Medicine Specialist</p>
-      <p style="font-size:13px;color:var(--t1);line-height:1.7;">شريك مؤسس ومدير المشروع الطبي. متخصص في الجوانب البيطرية والطب الوقائي، والمسؤول المباشر عن تحليل البيانات الحيوية وتصميم خوارزميات التشخيص الطبي المبكر لأمراض التمثيل الغذائي والخصوبة بالقطيع.</p>
+      <div class="team-role" style="background:var(--acc2);color:#000;">CHIEF VETERINARY OFFICER</div>
+      <h3 style="font-size:18px;color:var(--t0);margin-bottom:4px;">الدكتور / أحمد عماد إسماعيل</h3>
+      <p style="font-family:var(--mono);font-size:8px;color:var(--acc2);margin-bottom:14px;letter-spacing:.1em;">VETERINARY MEDICINE · MANSOURA UNIVERSITY · FOUNDER</p>
+      <p style="font-size:13px;color:var(--t1);line-height:1.8;">الخبرة البيطرية الميدانية هي القلب النابض لعافية-تك. الدكتور أحمد مسؤول مباشرة عن تصميم وتحقق خوارزميات التشخيص المبكر — كيتوسيز، التهاب الضرع، اضطرابات الخصوبة، والعرج — مستنداً إلى تدريبه الأكاديمي في كلية الطب البيطري جامعة المنصورة وخبرته الميدانية مع الأبقار المصرية البلدي والفريزيان المهجن.</p>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border);display:flex;gap:10px;flex-wrap:wrap">
+        <span style="font-family:var(--mono);font-size:8px;padding:3px 9px;border:1px solid rgba(212,160,0,.3);color:var(--acc2)">طب وقائي</span>
+        <span style="font-family:var(--mono);font-size:8px;padding:3px 9px;border:1px solid rgba(212,160,0,.3);color:var(--acc2)">اضطرابات الخصوبة</span>
+        <span style="font-family:var(--mono);font-size:8px;padding:3px 9px;border:1px solid rgba(212,160,0,.3);color:var(--acc2)">Algorithm Validation</span>
+      </div>
     </div>
     
     <div class="team-card">
-      <div class="team-role" style="background:var(--acc);color:#000;">TECHNICAL DIRECTOR</div>
-      <h3 style="font-size:18px;color:var(--t0);margin-bottom:5px;">المهندس / إسلام عماد أحمد إسماعيل</h3>
-      <p style="font-family:var(--mono);font-size:9px;color:var(--acc);margin-bottom:12px;">Electronics & Communications Engineer · Horus University</p>
-      <p style="font-size:13px;color:var(--t1);line-height:1.7;">شريك مؤسس والمسؤول التقني عن البنية البرمجية والعتاد. متخصص في هندسة الأنظمة المدمجة (Embedded Systems)، وتصميم وإدارة خوارزميات التعلم الآلي وبنية السيرفرات وشبكات إنترنت الأشياء الميدانية والربط الذكي.</p>
+      <div class="team-role" style="background:var(--acc);color:#000;">CHIEF TECHNOLOGY OFFICER</div>
+      <h3 style="font-size:18px;color:var(--t0);margin-bottom:4px;">المهندس / إسلام عماد أحمد إسماعيل</h3>
+      <p style="font-family:var(--mono);font-size:8px;color:var(--acc);margin-bottom:14px;letter-spacing:.1em;">ELECTRONICS & COMMUNICATIONS ENGINEERING · HORUS UNIVERSITY · FOUNDER</p>
+      <p style="font-size:13px;color:var(--t1);line-height:1.8;">المهندس إسلام يقود البنية التقنية الكاملة — من طبقة الاستشعار LoRaWAN وتصميم الدوائر المدمجة، إلى خوارزميات التعلم الآلي والـ Backend السحابي وبوت التلجرام. تخصصه في Embedded Systems وIoT يمنح النظام دقة هندسية لا تُبنى في المكاتب — بل في الحقول.</p>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border);display:flex;gap:10px;flex-wrap:wrap">
+        <span style="font-family:var(--mono);font-size:8px;padding:3px 9px;border:1px solid rgba(17,202,160,.3);color:var(--acc)">Embedded Systems</span>
+        <span style="font-family:var(--mono);font-size:8px;padding:3px 9px;border:1px solid rgba(17,202,160,.3);color:var(--acc)">IoT Architecture</span>
+        <span style="font-family:var(--mono);font-size:8px;padding:3px 9px;border:1px solid rgba(17,202,160,.3);color:var(--acc)">ML Pipelines</span>
+      </div>
     </div>
   </div>
 </div>
@@ -413,7 +483,7 @@ footer{border-top:1px solid var(--border);padding:20px 50px;display:flex;justify
         <textarea name="message" placeholder="اكتب رسالتك أو متطلباتك الميدانية هنا..." required></textarea>
       </div>
       
-      <div style="padding-top:16px;display:flex;align-items:center;justify-content:between;gap:10px;">
+      <div style="padding-top:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
         <span style="font-family:var(--mono);font-size:8px;color:var(--t3)">استجابة الإشارة الهندسية خلال 24 ساعة.</span>
         <button type="button" onclick="handleSend()" class="btn btn-p">إرسال الإشارة الذكية ←</button>
       </div>
@@ -526,7 +596,6 @@ async function handleSend() {
 
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unknown';
   const ua = navigator.userAgent || 'Unknown';
-  const res = `${window.screen.width}×${window.screen.height}`;
   const now = new Date();
 
   /* Formulating docx telemetry block natively */
